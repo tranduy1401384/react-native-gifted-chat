@@ -40,7 +40,7 @@ const styles = {
     },
     wrapper: {
       borderRadius: 15,
-      backgroundColor: Color.leftBubbleBackground,
+      backgroundColor: "transparent",
       marginRight: 60,
       minHeight: 20,
       justifyContent: 'flex-end',
@@ -63,7 +63,7 @@ const styles = {
     },
     wrapper: {
       borderRadius: 15,
-      backgroundColor: Color.defaultBlue,
+      backgroundColor: "transparent",
       marginLeft: 60,
       minHeight: 20,
       justifyContent: 'flex-end',
@@ -165,7 +165,7 @@ export interface BubbleProps<TMessage extends IMessage> {
 
 export default class Bubble<
   TMessage extends IMessage = IMessage
-> extends React.Component<BubbleProps<TMessage>> {
+  > extends React.Component<BubbleProps<TMessage>> {
   static contextTypes = {
     actionSheet: PropTypes.func,
   }
@@ -484,14 +484,14 @@ export default class Bubble<
         {this.renderCustomView()}
       </View>
     ) : (
-      <View>
-        {this.renderCustomView()}
-        {this.renderMessageImage()}
-        {this.renderMessageVideo()}
-        {this.renderMessageAudio()}
-        {this.renderMessageText()}
-      </View>
-    )
+        <View>
+          {this.renderCustomView()}
+          {this.renderMessageImage()}
+          {this.renderMessageVideo()}
+          {this.renderMessageAudio()}
+          {this.renderMessageText()}
+        </View>
+      )
   }
 
   render() {
@@ -521,7 +521,7 @@ export default class Bubble<
             accessibilityTraits='text'
             {...this.props.touchableProps}
           >
-            <View>
+            <View style={{ flexDirection: 'column-reverse' }}>
               {this.renderBubbleContent()}
               <View
                 style={[

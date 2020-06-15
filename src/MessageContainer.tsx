@@ -96,7 +96,7 @@ interface State {
 
 export default class MessageContainer<
   TMessage extends IMessage = IMessage
-> extends React.PureComponent<MessageContainerProps<TMessage>, State> {
+  > extends React.PureComponent<MessageContainerProps<TMessage>, State> {
   static defaultProps = {
     messages: [],
     user: {},
@@ -104,8 +104,8 @@ export default class MessageContainer<
     renderChatEmpty: null,
     renderFooter: null,
     renderMessage: null,
-    onLoadEarlier: () => {},
-    onQuickReply: () => {},
+    onLoadEarlier: () => { },
+    onQuickReply: () => { },
     inverted: true,
     loadEarlier: false,
     listViewProps: {},
@@ -323,10 +323,10 @@ export default class MessageContainer<
       return this.props.inverted ? (
         this.props.renderChatEmpty()
       ) : (
-        <View style={styles.emptyChatContainer}>
-          {this.props.renderChatEmpty()}
-        </View>
-      )
+          <View style={styles.emptyChatContainer}>
+            {this.props.renderChatEmpty()}
+          </View>
+        )
     }
     return <View style={styles.container} />
   }
@@ -406,6 +406,7 @@ export default class MessageContainer<
           ? this.renderScrollToBottomWrapper()
           : null}
         <FlatList
+          showsVerticalScrollIndicator={false}
           ref={this.props.forwardRef}
           extraData={[this.props.extraData, this.props.isTyping]}
           keyExtractor={this.keyExtractor}

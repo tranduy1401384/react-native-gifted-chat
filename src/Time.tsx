@@ -12,6 +12,7 @@ const containerStyle = {
   marginLeft: 10,
   marginRight: 10,
   marginBottom: 5,
+  marginTop: 5
 }
 
 const textStyle = {
@@ -26,7 +27,7 @@ const styles = {
       ...containerStyle,
     },
     text: {
-      color: Color.timeTextColor,
+      color: "#BBBBBB",
       ...textStyle,
     },
   }),
@@ -35,7 +36,7 @@ const styles = {
       ...containerStyle,
     },
     text: {
-      color: Color.white,
+      color: "#BBBBBB",
       ...textStyle,
     },
   }),
@@ -51,7 +52,7 @@ export interface TimeProps<TMessage extends IMessage> {
 
 export default class Time<
   TMessage extends IMessage = IMessage
-> extends Component<TimeProps<TMessage>> {
+  > extends Component<TimeProps<TMessage>> {
   static contextTypes = {
     getLocale: PropTypes.func,
   }

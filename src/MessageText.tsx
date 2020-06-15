@@ -19,17 +19,20 @@ import { StylePropType } from './utils'
 const WWW_URL_PATTERN = /^www\./i
 
 const textStyle = {
-  fontSize: 16,
+  fontSize: 14,
   lineHeight: 20,
-  marginTop: 5,
-  marginBottom: 5,
-  marginLeft: 10,
-  marginRight: 10,
+  marginTop: 6,
+  marginBottom: 6,
+  marginLeft: 12,
+  marginRight: 12,
 }
 
 const styles = {
   left: StyleSheet.create({
-    container: {},
+    container: {
+      backgroundColor: '#fff',
+      borderRadius: 20
+    },
     text: {
       color: 'black',
       ...textStyle,
@@ -40,7 +43,10 @@ const styles = {
     },
   }),
   right: StyleSheet.create({
-    container: {},
+    container: {
+      backgroundColor: "#5175EF",
+      borderRadius: 20
+    },
     text: {
       color: 'white',
       ...textStyle,
@@ -68,7 +74,7 @@ export interface MessageTextProps<TMessage extends IMessage> {
 
 export default class MessageText<
   TMessage extends IMessage = IMessage
-> extends React.Component<MessageTextProps<TMessage>> {
+  > extends React.Component<MessageTextProps<TMessage>> {
   static contextTypes = {
     actionSheet: PropTypes.func,
   }
@@ -172,7 +178,7 @@ export default class MessageText<
         style={[
           styles[this.props.position].container,
           this.props.containerStyle &&
-            this.props.containerStyle[this.props.position],
+          this.props.containerStyle[this.props.position],
         ]}
       >
         <ParsedText
